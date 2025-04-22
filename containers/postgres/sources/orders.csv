@@ -1,0 +1,4 @@
+id,order_date,total_amount,status,customer_id
+o0001,2025-04-01,550,completed,c0001
+o0001,2025-04-02,450,cancelled,c0002
+o0001,2025-04-03,250,processed,c0003

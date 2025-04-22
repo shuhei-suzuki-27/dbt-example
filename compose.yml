@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  db:
+    container_name: db
+    build:
+      context: .
+      dockerfile: ./containers/postgres/Dockerfile
+    volumes:
+      - type: volume
+        source: db_date
+        target: /var/lib/postgresql/data
+      - type: bind
+        source: ./containers/postgres/init.sql
+        target: /docker-entrypoint-initdb.d/init.sql
+      - type: bind
+        source: ./containers/postgres/sources
+        target: /data/sources
+    env_file: ./.env.local
+    environment:
+      - POSTGRES_NAME
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    ports:
+      - '5432:5432'
+volumes:
+  db_date:
