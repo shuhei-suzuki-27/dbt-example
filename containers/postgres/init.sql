@@ -1,19 +1,23 @@
+CREATE DATABASE dwh;
+
+\c dwh
+
 CREATE SCHEMA src;
 
-CREATE TABLE "postgres"."src"."customers" (
+CREATE TABLE "dwh"."src"."customers" (
     id VARCHAR(255),         -- 顧客ID
     name VARCHAR(255),       -- 顧客名称
     created_at VARCHAR(255), -- 登録日
     updated_at VARCHAR(255)  -- 更新日
 );
 
-CREATE TABLE "postgres"."src"."products" (
+CREATE TABLE "dwh"."src"."products" (
     id VARCHAR(255),   -- 商品ID
     name VARCHAR(255), -- 商品名称
     price NUMERIC      -- 商品価格
 );
 
-CREATE TABLE "postgres"."src"."orders" (
+CREATE TABLE "dwh"."src"."orders" (
     id VARCHAR(255),         -- 注文ID
     order_date VARCHAR(255), -- 注文日
     total_amount NUMERIC,    -- 合計金額
@@ -21,7 +25,7 @@ CREATE TABLE "postgres"."src"."orders" (
     customer_id VARCHAR(255) -- 顧客ID
 );
 
-CREATE TABLE "postgres"."src"."order_details" (
+CREATE TABLE "dwh"."src"."order_details" (
     quantity INTEGER,       -- 数量
     amount NUMERIC,         -- 金額
     order_id VARCHAR(255),  -- 注文ID
